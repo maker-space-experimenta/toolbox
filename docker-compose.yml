@@ -1,0 +1,57 @@
+version: '3'
+
+networks:
+  toolbox_backend:
+  traefik_net:
+    external: true
+
+services:
+
+  mssql:
+    image: "mcr.microsoft.com/mssql/server"
+    restart: always
+    environment:
+        SA_PASSWORD: ${DB_SA_PASSWORD}
+        ACCEPT_EULA: "Y"
+    ports:
+      - 1433:1433
+    volumes:
+       - ${datadir}/mssql/data:/var/opt/mssql/data
+       - ${datadir}/mssql/log:/var/opt/mssql/log
+       - ${datadir}/mssql/secrets:/var/opt/mssql/secrets
+    networks:
+      - toolbox_backend
+
+
+  mssqlscripts:
+    image: mcr.microsoft.com/mssql-tools
+    restart: always
+    depends_on:
+      - mssql
+    networks:
+      - toolbox_backend
+    command: /bin/bash -c 'until /opt/mssql-tools/bin/sqlcmd -S mssql -U sa -P "${DB_SA_PASSWORD}" -Q "create database Keycloak"; do sleep 5; done'
+
+
+  keycloak:
+    image: jboss/keycloak
+    restart: always
+    environment:
+      - KEYCLOAK_USER=${KEYCLOAK_USER}
+      - KEYCLOAK_PASSWORD=${KEYCLOAK_PASSWORD}
+      - DB_VENDOR=mssql
+      - DB_USER=${KEYCLOAK_DB_USER}
+      - DB_PASSWORD=${KEYCLOAK_DB_PASSWORD}
+      - DB_ADDR=mssql
+      - DB_DATABASE=Keycloak
+    labels:
+      - traefik.frontend.rule=Host:login.${TOOLBOX_BASE_URL}
+      - traefik.docker.network=traefik_net
+      - traefik.enable=true
+      - traefik.port=8080
+    networks:
+      - toolbox_backend
+      - traefik_net
+    depends_on:
+      - mssql
+      - mssqlscripts
