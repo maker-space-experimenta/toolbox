@@ -48,7 +48,8 @@ services:
       - traefik.frontend.rule=Host:login.${TOOLBOX_BASE_URL}
       - traefik.docker.network=traefik_net
       - traefik.enable=true
-      - traefik.port=8080
+      - traefik.port=8443
+      - traefik.protocol=https
     networks:
       - toolbox_backend
       - traefik_net
