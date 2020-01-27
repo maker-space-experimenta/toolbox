@@ -13,8 +13,6 @@ services:
     environment:
         SA_PASSWORD: ${DB_SA_PASSWORD}
         ACCEPT_EULA: "Y"
-    ports:
-      - 1433:1433
     volumes:
        - ${datadir}/mssql/data:/var/opt/mssql/data
        - ${datadir}/mssql/log:/var/opt/mssql/log
@@ -42,8 +40,8 @@ services:
       - DB_VENDOR=mssql
       - DB_USER=${KEYCLOAK_DB_USER}
       - DB_PASSWORD=${KEYCLOAK_DB_PASSWORD}
-      - DB_ADDR=mssql
-      - DB_DATABASE=Keycloak
+      - DB_ADDR=${KEYCLOAK_DB_SERVER}
+      - DB_DATABASE=${KEYCLOAK_DB_NAME}
     labels:
       - traefik.frontend.rule=Host:login.${TOOLBOX_BASE_URL}
       - traefik.docker.network=traefik_net
