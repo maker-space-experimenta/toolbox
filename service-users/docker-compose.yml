@@ -1,0 +1,22 @@
+version: "3"
+
+networks:
+    toolbox_backend:
+        external: true
+    traefik_net:
+        external: true
+
+services:
+    service-users:
+        build: .
+        volumes:
+            - ./:/app
+        labels:
+            - "traefik.frontend.rule=Host:${API_HOST}; PathPrefixStrip:${API_PATH}"
+            - "traefik.docker.network=traefik_net"
+            - "traefik.enable=true"
+            - "traefik.port=5000"
+        networks:
+            - traefik_net
+            - toolbox_backend
+
