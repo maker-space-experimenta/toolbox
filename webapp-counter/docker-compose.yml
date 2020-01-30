@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  frontend:
+    image: nginx
+    restart: always
+    volumes:
+      - ./app:/usr/share/nginx/html
+    labels:
+      - traefik.frontend.rule=Host:counter.toolbox.hmnd.de
+      - traefik.docker.network=traefik_net
+      - traefik.enable=true
+      - traefik.port=80
+    networks:
+      - traefik_net
+
+networks:
+  traefik_net:
+    external: true
