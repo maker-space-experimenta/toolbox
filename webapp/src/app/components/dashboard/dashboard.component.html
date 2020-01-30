@@ -1,0 +1,51 @@
+<div class="content-area" style="width: 100%;">
+
+    <div class="clr-row">
+        <div class="clr-col-lg-6 clr-col-md-8 clr-col-12">
+            <div class="card">
+                <div class="card-header">
+                    global visits
+                </div>
+                <div class="card-block">
+                    <div class="card-title">
+                        all visitors
+                    </div>
+                    <div class="card-text">
+                        <app-chart-visitors style="height: 400px;"></app-chart-visitors>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    {{ user.userName }}
+                </div>
+                <div class="card-block">
+                    <div class="card-title">
+                        Welcome back {{ user.firstname }}
+                        
+                    </div>
+                    <div class="card-text">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="clr-col-lg-6 clr-col-md-8 clr-col-12">
+            <div class="card">
+                <div class="card-header">
+                    global visits
+                </div>
+                <div class="card-block">
+                    <div class="card-title">
+                        all visitors
+                    </div>
+                    <div class="card-text">
+                        <app-chart-weekday-heatmap style="height: 400px;"></app-chart-weekday-heatmap>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

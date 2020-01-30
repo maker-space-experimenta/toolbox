@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  frontend:
+    build: .
+    restart: always
+    labels:
+      - traefik.frontend.rule=Host:toolbox.hmnd.de
+      - traefik.docker.network=traefik_net
+      - traefik.enable=true
+      - traefik.port=80
+    networks:
+      - traefik_net
+
+networks:
+  traefik_net:
+    external: true

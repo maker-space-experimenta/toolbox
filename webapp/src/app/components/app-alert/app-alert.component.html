@@ -1,0 +1,19 @@
+<div class="alert alert-app-level" *ngIf="alert || alert.Watched == false" [ngClass]="{ 'alert-danger': alert.Type == 1, 'alert-warning': alert.Type == 2, 'alert-info': alert.Type == 3 }">
+
+    <div class="alert-items">
+      <div class="alert-item static">
+        <div class="alert-icon-wrapper">
+          <clr-icon class="alert-icon" shape="exclamation-circle"></clr-icon>
+        </div>
+        <div class="alert-text">{{ alert.Message }}</div>
+        <div class="alert-actions" *ngIf="alert.Action">
+          <button class="btn alert-action">{{ alert.Action.Text}}</button>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="close" aria-label="Close" (click)="hideAppAlert()">
+      <clr-icon aria-hidden="true" shape="close"></clr-icon>
+    </button>
+
+
+  </div>

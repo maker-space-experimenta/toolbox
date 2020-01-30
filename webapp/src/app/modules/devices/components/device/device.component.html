@@ -1,0 +1,115 @@
+<form clrForm>
+
+    <div *ngIf="device" class="clr-row">
+        <div class="clr-col-12">
+            <h2>{{ device.name  }} </h2>
+        </div>
+
+        <div class="clr-col-md-8 clr-col-12">
+            <div class="card">
+                <div class="card-header">
+                    General
+                </div>
+                <div class="card-block">
+                    <div class="card-text">
+                        <clr-input-container>
+                            <label>ID</label>
+                            <input clrInput type="text" [(ngModel)]="device.id" name="id" readonly
+                                style="width: 100%;" />
+                        </clr-input-container>
+
+                        <clr-input-container>
+                            <label>Name</label>
+                            <input clrInput type="text" [(ngModel)]="device.name" name="name" style="width: 100%;" />
+                        </clr-input-container>
+
+                        <clr-input-container>
+                            <label>Description</label>
+                            <input clrInput type="text" [(ngModel)]="device.description" name="description"
+                                style="width: 100%;" />
+                        </clr-input-container>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    Documents
+                </div>
+                <div class="card-block">
+                    <div class="card-title">
+                        Safety Instructions
+                    </div>
+                    <div class="card-text">
+                        <clr-date-container style="margin: 0;">
+                            <label style=" padding-left: 0;">Date created</label>
+                            <input type="date" clrDate >
+                        </clr-date-container>
+
+                        <clr-input-container>
+                            <label>File</label>
+                            <input clrInput type="file" />
+                        </clr-input-container>
+                    </div>
+
+                    <div class="card-title" style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #ededed;">
+                        Risk Assessment
+                    </div>
+                    <div class="card-text">
+                        <clr-date-container style="margin: 0;">
+                            <label style=" padding-left: 0;">Date created</label>
+                            <input type="date" clrDate >
+                        </clr-date-container>
+
+                        <clr-input-container>
+                            <label>File</label>
+                            <input clrInput type="file" />
+                        </clr-input-container>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    Inventory
+                </div>
+                <div class="card-block">
+                    <div class="card-text">
+                        <clr-input-container>
+                            <label>Location</label>
+                            <input clrInput type="text" [(ngModel)]="device.location" name="location"
+                                style="width: 100%;" />
+                        </clr-input-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class=" clr-col-md-4 clr-col-12">
+            <div class="card">
+                <div class="card-header">
+                    Bilder
+                </div>
+                <div class="card-block">
+                    <div class="card-text">
+                        <img src="./../../../../../assets/ts001.jpg" style="max-width: 100%; min-width: 100%; " />
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <img src="./../../../../../assets/ts002.jpg" style="max-width: 10%; " />
+                    <img src="./../../../../../assets/ts003.jpg" style="max-width: 10%; " />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="clr-row" style="margin: 12px 0;">
+        <div class="clr-col-12">
+            <button class="btn btn-primary">Save</button>
+        </div>
+    </div>
+
+</form>

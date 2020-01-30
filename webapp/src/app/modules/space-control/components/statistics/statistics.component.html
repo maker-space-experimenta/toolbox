@@ -1,0 +1,36 @@
+<div class="content-container">
+
+    <nav class="sidenav">
+        <section class="sidenav-content">
+            <a [routerLink]="['all_visitors']" class="nav-link active">
+                All visitors
+            </a>
+            <a [routerLink]="['attendance_times']" class="nav-link">
+                Attendance times
+            </a>
+            <section class="nav-group collapsible">
+                <input id="tabexample1" type="checkbox">
+                <label for="tabexample1">Collapsible Nav Element</label>
+                <ul class="nav-list">
+                    <li><a class="nav-link">Link 1</a></li>
+                    <li><a class="nav-link">Link 2</a></li>
+                </ul>
+            </section>
+            <section class="nav-group">
+                <input id="tabexample2" type="checkbox">
+                <label for="tabexample2">Default Nav Element</label>
+                <ul class="nav-list">
+                    <li><a class="nav-link">Link 1</a></li>
+                    <li><a class="nav-link">Link 2</a></li>
+                    <li><a class="nav-link active">Link 3</a></li>
+                    <li><a class="nav-link">Link 4</a></li>
+                    <li><a class="nav-link">Link 5</a></li>
+                    <li><a class="nav-link">Link 6</a></li>
+                </ul>
+            </section>
+        </section>
+    </nav>
+    <div class="content-area">
+        <router-outlet></router-outlet>
+    </div>
+</div>

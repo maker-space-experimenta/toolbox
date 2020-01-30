@@ -1,0 +1,15 @@
+<clr-datagrid>
+    <clr-dg-column>User ID</clr-dg-column>
+    <clr-dg-column>Name</clr-dg-column>
+    <clr-dg-column *ngFor="let device of devices | async">{{ device.name }}</clr-dg-column>
+
+    <clr-dg-row *ngFor="let license of licenses | async">
+        <clr-dg-cell>{{ license.User.Id }}</clr-dg-cell>
+        <clr-dg-cell>{{ license.User.DisplayName }}</clr-dg-cell>
+        <clr-dg-cell *ngFor="let device of devices | async">
+            <clr-icon shape="check"></clr-icon>
+        </clr-dg-cell>
+    </clr-dg-row>
+
+    <clr-dg-footer>{{licenses.length}} Users</clr-dg-footer>
+</clr-datagrid>

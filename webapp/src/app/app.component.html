@@ -1,0 +1,15 @@
+
+
+<div *ngIf="!isLoggedIn" class="" style="width: 100vw; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+    <span class="spinner">
+        Loading...
+    </span>
+    <div class="" style="margin-top: 1rem;">{{ status }}</div>
+</div>
+
+<app-layout *ngIf="isLoggedIn">
+    <router-outlet></router-outlet>
+</app-layout>
+
+
+

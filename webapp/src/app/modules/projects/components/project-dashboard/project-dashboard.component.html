@@ -1,0 +1,47 @@
+<h3>my projects</h3>
+<div class="clr-row">
+    <div class="clr-col-lg-3 clr-col-md-4 clr-col-12" *ngFor="let project of Projects | async">
+        <div class="card">
+            <div class="card-header">
+                {{ project.title }}
+            </div>
+            <div class="card-block">
+                <div class="card-title">
+                    {{ project.todos.length }} new,
+                    {{ project.todos.length }} open,
+                    {{ project.todos.length }} closed
+
+                </div>
+                <div class="card-text">
+                    {{ project.description }}
+                </div>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-sm btn-link">open project</button>
+                <button class="btn btn-sm btn-link">show todos</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<h3 class="">my todos</h3>
+<div class="clr-row">
+    <div class="clr-col-12">
+        <clr-datagrid>
+            <clr-dg-column>ID</clr-dg-column>
+            <clr-dg-column>State</clr-dg-column>
+            <clr-dg-column>Title</clr-dg-column>
+            <clr-dg-column>Description</clr-dg-column>
+
+            <clr-dg-row *ngFor="let todo of Todos | async" class="c-pointer">
+                <clr-dg-cell></clr-dg-cell>
+                <clr-dg-cell>{{ todo.id }}</clr-dg-cell>
+                <clr-dg-cell>{{ todo.state }}</clr-dg-cell>
+                <clr-dg-cell>{{ todo.title }}</clr-dg-cell>
+                <clr-dg-cell>{{ todo.description }}</clr-dg-cell>
+            </clr-dg-row>
+
+        </clr-datagrid>
+    </div>
+</div>
