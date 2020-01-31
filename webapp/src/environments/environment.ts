@@ -4,141 +4,128 @@
 
 export const environment = {
   production: false,
-  firebase: {
-    apiKey: "AIzaSyCfflLx3_Bews6BH-GaTgvuUX19bMGNJ6I",
-    authDomain: "toolbox-2644a.firebaseapp.com",
-    databaseURL: "https://toolbox-2644a.firebaseio.com",
-    projectId: "toolbox-2644a",
-    storageBucket: "toolbox-2644a.appspot.com",
-    messagingSenderId: "118707216949",
-    appId: "1:118707216949:web:29a66da21503ffee"
-  },
 
   menu: {
     default: [
       {
-        text: "Dashboard",
+        i18n_key: "nav_dashboard",
         path: "/dashboard",
 
         children: [
           {
-            text: "Overview",
+            i18n_key: "Overview",
             path: "/dashboard",
           }
         ]
       },
       {
-        text: "Devices and Material",
+        i18n_key: "nav_devices_and_material",
         path: "/devices",
 
         children: [
           {
-            text: "Devices",
+            i18n_key: "nav_dam_devices",
             path: "/devices",
           },
           {
-            text: "Device Licenses",
+            i18n_key: "nav_dam_device_licenses",
             path: "/devices/licenses",
           },
           {
-            text: "New Device",
+            i18n_key: "nav_dam_new_device",
             path: "/devices/new",
           },
           {
-            text: "Material",
+            i18n_key: "nav_dam_material",
             path: "/devices/new",
           },
         ]
       },
       {
-        text: "CMS",
+        i18n_key: "nav_cms",
         path: "/index/cms",
         children: [
           {
-            text: "Pages",
+            i18n_key: "nav_cms_pages",
             path: "/index/cms/pages",
           },
           {
-            text: "Blog",
+            i18n_key: "nav_cms_blog",
             path: "/index/cms/pages",
           },
           {
-            text: "Announcements",
+            i18n_key: "nav_cms_announcements",
             path: "/index/cms/pages",
           },
           {
-            text: "Themes",
+            i18n_key: "nav_cms_themes",
             path: "/index/cms/themes",
           },
         ]
       },
       {
-        text: "Workshops",
+        i18n_key: "nav_workshops",
         path: "/index/workshops",
         children: [
           {
-            text: "Kalendar",
+            i18n_key: "nav_ws_calendar",
             path: "/index/cms/pages",
           },
           {
-            text: "Registrations",
+            i18n_key: "nav_ws_registrations",
             path: "/index/cms/themes",
           },
         ]
       },
       {
 
-        text: "Space Control",
+        i18n_key: "nav_space_control",
         path: "/spacecontrol",
         children: [
           {
-            text: "Presence",
+            i18n_key: "nav_sc_presence",
             path: "/presence",
           },
           {
-            text: "Statistics",
+            i18n_key: "nav_sc_statistics",
             path: "/spacecontrol/statistics",
           },
           {
-            text: "Light",
+            i18n_key: "nav_sc_light",
             path: "/spacecontrol/light",
           },
           {
-            text: "Music",
+            i18n_key: "nav_sc_music",
             path: "/spacecontrol/music",
           }
         ]
       },
       {
-        text: "Users",
+        i18n_key: "nav_users",
         path: "/index/admin",
         children: [
           {
-            text: "Me",
+            i18n_key: "nav_users_me",
             path: "/index/cms/pages",
           },
           {
-            text: "All",
-            path: "/index/cms/pages",
-          },
-          {
-            text: "Presence",
+            i18n_key: "nav_users_all",
             path: "/index/cms/pages",
           },
         ]
       },
       {
-        text: "Projects",
+        i18n_key: "nav_projects",
         path: "/projects",
         children: [
           {
-            text: "All Projects",
+            i18n_key: "nav_projects_all",
             order: 1,
             path: "/projects",
             children: []
           },
           {
-            text: "my todos",
+            i18n_key: "nav_projects_todos",
             order: 1,
             path: "/projects/all/todos",
             children: []
@@ -147,18 +134,18 @@ export const environment = {
       },
       {
         id: "shifts",
-        text: "Shifts",
+        i18n_key: "nav_shifts",
         order: 1,
         path: "",
         children: [
           {
-            text: "Timetables",
+            i18n_key: "nav_shifts_timetables",
             order: 1,
             path: "/index/cms/pages",
             children: []
           },
           {
-            text: "Events",
+            i18n_key: "nav_shifts_events",
             order: 1,
             path: "/index/cms/pages",
             children: []
@@ -167,24 +154,24 @@ export const environment = {
       },
       {
         id: "admin",
-        text: "Administration",
+        i18n_key: "nav_admin",
         order: 1,
         path: "/index/admin",
         children: [
           {
-            text: "General",
+            i18n_key: "nav_admin_general",
             order: 1,
             path: "/index/cms/pages",
             children: []
           },
           {
-            text: "Users",
+            i18n_key: "nav_admin_users",
             order: 1,
             path: "/index/cms/pages",
             children: []
           },
           {
-            text: "Usergroups",
+            i18n_key: "nav_admin_usergroups",
             order: 1,
             path: "/index/cms/pages",
             children: []

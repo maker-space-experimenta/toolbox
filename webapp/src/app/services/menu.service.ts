@@ -29,9 +29,9 @@ export class MenuService {
     }
 
     return {
-      text: menuItem.text,
+      i18n_key: menuItem.i18n_key,
       path: menuItem.path,
-      id: menuItem.id ? menuItem.id : menuItem.text.toLowerCase(),
+      id: menuItem.id ? menuItem.id : menuItem.i18n_key.toLowerCase(),
       active: menuItem.active ? menuItem.active : false,
       order: menuItem.order ? menuItem.order : 0,
       children: children

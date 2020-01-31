@@ -26,14 +26,8 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
 
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': "Bearer " + this.oauthService.getAccessToken()
-      })
-    };
 
-    this.http.get("http://localhost:5000/me", httpOptions).subscribe(result => {
+    this.http.get("http://localhost:5000/me").subscribe(result => {
       console.log(result);
       this.user = result;
     }, error => console.error(error));

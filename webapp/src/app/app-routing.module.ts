@@ -8,10 +8,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 
 
 const routes: Routes = [
-  {
-    path: '**',
-    component: DashboardComponent
-  },
+  
 
   {
     path: 'dashboard',
@@ -36,6 +33,11 @@ const routes: Routes = [
   {
     path: 'projects',
     loadChildren: () => import('./modules/projects/projects.module').then(m => m.ProjectsModule)
+  },
+
+  {
+    path: '**',
+    component: DashboardComponent
   }
 ];
 

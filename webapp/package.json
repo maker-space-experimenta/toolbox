@@ -23,6 +23,8 @@
     "@clr/angular": "^2.1.2",
     "@clr/icons": "2.1.2",
     "@clr/ui": "^2.1.2",
+    "@ngx-translate/core": "^11.0.1",
+    "@ngx-translate/http-loader": "^4.0.0",
     "@webcomponents/custom-elements": "^1.0.0",
     "angular-oauth2-oidc": "^8.0.4",
     "chart.js": "^2.8.0",

@@ -18,11 +18,14 @@
 
             <div class="card">
                 <div class="card-header">
-                    {{ user.userName }}
+                    <span *ngIf="user">{{ user.userName }}</span>
                 </div>
                 <div class="card-block">
                     <div class="card-title">
-                        Welcome back {{ user.firstname }}
+                        <span *ngIf="user">
+                            {{ 'welcome back' | translate }} {{ user.firstname }},
+                        </span>
+
                         
                     </div>
                     <div class="card-text">

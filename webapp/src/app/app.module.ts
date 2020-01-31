@@ -16,8 +16,10 @@ import { environment } from 'src/environments/environment';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { DevicesModule } from './modules/devices/devices.module';
 import { CommonComponentsModule } from './modules/common-components/common-components.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { OAuthModule } from 'angular-oauth2-oidc';
+import { I18nModule } from './i18n/i18n.module';
+import { HttpAuthInterceptorService } from './services/http-auth-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -36,12 +38,19 @@ import { OAuthModule } from 'angular-oauth2-oidc';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    I18nModule,
 
     OAuthModule.forRoot(),
 
     CommonComponentsModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpAuthInterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

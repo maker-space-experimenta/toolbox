@@ -2,7 +2,7 @@ export class MenuItem {
     id: string;
     
     active: boolean;
-    text: string;
+    i18n_key: string;
     order: number;
     path: string;
 

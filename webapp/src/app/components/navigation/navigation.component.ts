@@ -3,6 +3,7 @@ import { MenuService } from 'src/app/services/menu.service';
 import { MenuItem } from 'src/app/classes/menu-item';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-navigation',
@@ -19,15 +20,20 @@ export class NavigationComponent implements OnInit {
 
   username: string = null;
 
+  langs: string[] = [];
+
   constructor(
     private router: Router,
     private route:ActivatedRoute,
     private menuService: MenuService,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private translate: TranslateService) { }
 
   ngOnInit() {
 
     this.username = this.authService.username;
+    this.langs = this.translate.langs;
+    
 
     this.menu = this.menuService.menu;
     this.menuService.menuObservable.subscribe(m => {
@@ -56,6 +62,10 @@ export class NavigationComponent implements OnInit {
 
     this.menuService.navigate(item);
     this.selectedMenu = item;
+  }
+
+  setLanguage(lang: string) {
+    this.translate.use(lang);
   }
 
 
