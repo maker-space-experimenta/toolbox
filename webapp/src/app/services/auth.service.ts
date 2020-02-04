@@ -45,6 +45,9 @@ export class AuthService {
     this.oauthService.logOut();
   }
 
+  // get roles() {
+    
+  // }
 
   get username() {
     let claims: any = this.oauthService.getIdentityClaims();
@@ -52,6 +55,8 @@ export class AuthService {
       console.log("no claims available");
       return null;
     }
+
+    console.log(claims);
 
     return claims.preferred_username;
   }

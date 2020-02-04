@@ -3,6 +3,7 @@ import { ModuleWithProviders } from '@angular/core';
 import { DevicesComponent } from './components/devices/devices.component';
 import { DeviceComponent } from './components/device/device.component';
 import { DeviceLicensesComponent } from './components/device-licenses/device-licenses.component';
+import { StorageComponent } from './components/storage/storage.component';
 
 const routes: Routes = [
     {
@@ -16,6 +17,14 @@ const routes: Routes = [
     {
         path: 'licenses',
         component: DeviceLicensesComponent
+    },
+    {
+        path: 'storage',
+        component: StorageComponent
+    },
+    {
+        path: 'storage/:storeid',
+        component: StorageComponent
     }
 ];
 

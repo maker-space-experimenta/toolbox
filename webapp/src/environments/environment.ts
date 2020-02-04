@@ -32,12 +32,8 @@ export const environment = {
             path: "/devices/licenses",
           },
           {
-            i18n_key: "nav_dam_new_device",
-            path: "/devices/new",
-          },
-          {
-            i18n_key: "nav_dam_material",
-            path: "/devices/new",
+            i18n_key: "nav_dam_storage",
+            path: "/devices/storage",
           },
         ]
       },

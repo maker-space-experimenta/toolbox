@@ -1,0 +1,76 @@
+<div class="content-area" style="width: 100%;">
+    <div class="clr-row">
+        <div class="clr-col-2">
+
+            <clr-tree>
+                <clr-tree-node *clrRecursiveFor="let location of locations; getChildren: getChildren"
+                    (click)="selectLocation($event, location)" class="c-pointer">
+                    <span style="font-weight: bold; margin-right: 10px;">{{ location.id }}</span>
+                    <span>{{ location.name }}</span>
+                </clr-tree-node>
+            </clr-tree>
+
+        </div>
+        <div class="clr-col" *ngIf="selectedLocation">
+
+            <div class="clr-row">
+                <div class="clr-col">
+                    <form clrForm>
+                        <clr-input-container>
+                            <label>{{ 'Location ID' | translate }}</label>
+                            <input clrInput type="text" [(ngModel)]="selectedLocation.id" name="item_id" />
+                        </clr-input-container>
+                        <clr-input-container>
+                            <label>{{ 'Name' | translate }}</label>
+                            <input clrInput type="text" [(ngModel)]="selectedLocation.name" name="item_name" />
+                        </clr-input-container>
+
+                        <clr-select-container>
+                            <label>{{ 'Category' | translate }}</label>
+                            <select clrSelect name="item_category" [(ngModel)]="selectedLocation.category">
+                                <option value="one">One</option>
+                                <option value="two">Two</option>
+                                <option value="three">Three</option>
+                            </select>
+                        </clr-select-container>
+
+                        <clr-input-container>
+                            <label>{{ 'Tags' | translate }}</label>
+                            <input clrInput type="text" [(ngModel)]="selectedLocation.tags" name="item_tags" />
+                        </clr-input-container>
+
+                        <clr-textarea-container>
+                            <label>Description</label>
+                            <textarea clrTextarea [(ngModel)]="selectedLocation.description" name="item_description" required></textarea>
+                        </clr-textarea-container>
+                    </form>
+                </div>
+            </div>
+
+            <div class="clr-row items-list" *ngIf="selectedLocation">
+                <div class="clr-col-12">
+                    <span class="items-list-headline">{{ 'Items in this location' | translate }}</span>
+                </div>
+                <div class="clr-col">
+
+                    <clr-datagrid>
+                        <clr-dg-column>{{ 'ID' | translate }}</clr-dg-column>
+                        <clr-dg-column>{{ 'Item name' | translate }}</clr-dg-column>
+                        <clr-dg-column>{{ 'Count' | translate }}</clr-dg-column>
+                        <clr-dg-column>{{ 'Storage' | translate }}</clr-dg-column>
+
+                        <clr-dg-row *ngFor="let item of getAllItems(selectedLocation)" class="c-pointer">
+                            <clr-dg-cell>{{ item.id }}</clr-dg-cell>
+                            <clr-dg-cell>{{ item.name }}</clr-dg-cell>
+                            <clr-dg-cell>{{ item.count }}</clr-dg-cell>
+                            <clr-dg-cell>{{ item.storage }}</clr-dg-cell>
+                        </clr-dg-row>
+
+                        <clr-dg-footer>{{ getAllItems(selectedLocation).length }} items</clr-dg-footer>
+                    </clr-datagrid>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

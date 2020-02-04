@@ -14,20 +14,24 @@ import { environment } from 'src/environments/environment';
 import { CommonComponentsModule } from '../common-components/common-components.module';
 import { DeviceComponent } from './components/device/device.component';
 import { DeviceLicensesComponent } from './components/device-licenses/device-licenses.component';
+import { I18nModule } from 'src/app/i18n/i18n.module';
+import { StorageComponent } from './components/storage/storage.component';
 
 
 @NgModule({
   declarations: [
     DevicesComponent,
     DeviceComponent,
-    DeviceLicensesComponent
+    DeviceLicensesComponent,
+    StorageComponent
   ],
   imports: [
     CommonModule,
     DevicesModuleRouting,
     CommonComponentsModule,
     ClarityModule,
-    FormsModule
+    FormsModule,
+    I18nModule
   ]
 })
 export class DevicesModule {

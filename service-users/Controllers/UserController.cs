@@ -6,8 +6,10 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using service_users.Database;
 using service_users.Services;
 
 namespace service_users.Controllers
@@ -16,15 +18,21 @@ namespace service_users.Controllers
     [Route("")]
     public class UserController : ControllerBase
     {
+        IConfiguration _config;
 
-        public UserController()
+        public UserController(IConfiguration config)
         {
+            _config = config;
         }
 
         [HttpGet]
         [Authorize]
         public object Get()
         {
+            return _config;
+
+            Console.WriteLine("db: " + _config.GetValue<string>("TOOLBOX_DB_SERVER"));
+
             return new
             {
                 username = "test",
@@ -35,9 +43,9 @@ namespace service_users.Controllers
 
         [HttpGet]
         [Route("/me")]
-        public UserModel GetMe()
+        public User GetMe()
         {
-            return new UserModel(HttpContext.User.Claims);
+            return new User(HttpContext.User.Claims);
         }
 
         // [HttpGet]

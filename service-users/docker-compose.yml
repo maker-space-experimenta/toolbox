@@ -12,7 +12,7 @@ services:
         volumes:
             - ./:/app
         labels:
-            - "traefik.frontend.rule=Host:${API_HOST}; PathPrefixStrip:${API_PATH}"
+            - "traefik.frontend.rule=Host:api.${TOOLBOX_BASE_URL}; PathPrefixStrip:users"
             - "traefik.docker.network=traefik_net"
             - "traefik.enable=true"
             - "traefik.port=5000"

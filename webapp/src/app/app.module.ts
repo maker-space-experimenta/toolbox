@@ -20,6 +20,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { OAuthModule } from 'angular-oauth2-oidc';
 import { I18nModule } from './i18n/i18n.module';
 import { HttpAuthInterceptorService } from './services/http-auth-interceptor.service';
+import { UserSettingsComponent } from './components/user-settings/user-settings.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { HttpAuthInterceptorService } from './services/http-auth-interceptor.ser
     LayoutComponent,
     AppAlertComponent,
     NavigationComponent,
-    DashboardComponent
+    DashboardComponent,
+    UserSettingsComponent
   ],
   imports: [
     BrowserModule,

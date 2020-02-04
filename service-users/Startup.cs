@@ -8,12 +8,13 @@ using Microsoft.AspNetCore.Authentication.OpenIdConnect;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Logging;
 using Microsoft.IdentityModel.Tokens;
-// using service_users.Services;
+using service_users.Database;
 
 namespace service_users
 {
@@ -33,6 +34,12 @@ namespace service_users
         {
             services.AddCors();
             services.AddControllers();
+
+            services.AddDbContext<DBContext>(o => {
+                var db_server = this.Configuration.GetValue<string>("DB_SERVER");
+                Console.WriteLine("db server: " + db_server);
+                // o.UseSqlServer( "Data Source=" + db_server + ";Initial Catalog=mydb;persist security info=True;user id=sa;password=*****" );
+            });
 
             services.AddAuthentication(o =>
             {
