@@ -1,4 +1,15 @@
 
 .env
-webapp/package-lock.json
 _volumes/
+
+service-users/.vscode/
+service-users/obj/
+service-users/bin/
+
+node-artnet/.vscode/
+node-artnet/obj/
+node-artnet/bin/
+
+webapp/node_modules/
+webapp/dist/
+webapp/package-lock.json
