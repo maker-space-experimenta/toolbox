@@ -6,8 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClarityModule } from '@clr/angular';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { AppAlertComponent } from './components/app-alert/app-alert.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
@@ -25,8 +23,6 @@ import { UserSettingsComponent } from './components/user-settings/user-settings.
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent,
-    RegisterComponent,
     LayoutComponent,
     AppAlertComponent,
     NavigationComponent,
@@ -44,7 +40,8 @@ import { UserSettingsComponent } from './components/user-settings/user-settings.
 
     OAuthModule.forRoot(),
 
-    CommonComponentsModule
+    CommonComponentsModule,
+    DevicesModule
   ],
   providers: [
     {

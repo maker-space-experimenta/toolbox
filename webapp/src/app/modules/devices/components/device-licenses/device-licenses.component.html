@@ -11,5 +11,5 @@
         </clr-dg-cell>
     </clr-dg-row>
 
-    <clr-dg-footer>{{licenses.length}} Users</clr-dg-footer>
+    <clr-dg-footer>{{ licenses | async | arrayLength }} Users</clr-dg-footer>
 </clr-datagrid>

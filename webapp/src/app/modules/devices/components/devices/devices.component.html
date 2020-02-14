@@ -20,5 +20,5 @@
         <clr-dg-cell><clr-icon shape="file" title="download" class="c-pointer"></clr-icon> {{ device.riskassessment | date:'dd.MM.yyyy' }}</clr-dg-cell>
     </clr-dg-row>
 
-    <clr-dg-footer>{{ devices.length }} devices</clr-dg-footer>
+    <clr-dg-footer>{{ devices | async | arrayLength }} devices</clr-dg-footer>
 </clr-datagrid>

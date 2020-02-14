@@ -20,4 +20,8 @@ export class AppAlertComponent implements OnInit {
     this.alertService.sendAppAlert(new Alert("Die Instanz wurde erfolgreich eingerichtet. Jetzt solltest du ein paar Einstellungen vornehmen."));
   }
 
+  hideAppAlert() {
+    
+  }
+
 }

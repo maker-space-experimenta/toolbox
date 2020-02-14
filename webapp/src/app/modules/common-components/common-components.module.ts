@@ -4,6 +4,7 @@ import { ChartVisitorsComponent } from './components/chart-visitors/chart-visito
 import { InputDocumentsComponent } from './components/input-documents/input-documents.component';
 import { ClarityModule } from '@clr/angular';
 import { ChartWeekdayHeatmapComponent } from './components/chart-weekday-heatmap/chart-weekday-heatmap.component';
+import { ArrayLengthPipe } from './pipes/array-length.pipe';
 
 
 
@@ -11,7 +12,8 @@ import { ChartWeekdayHeatmapComponent } from './components/chart-weekday-heatmap
   declarations: [
     ChartVisitorsComponent,
     InputDocumentsComponent,
-    ChartWeekdayHeatmapComponent
+    ChartWeekdayHeatmapComponent,
+    ArrayLengthPipe
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { ChartWeekdayHeatmapComponent } from './components/chart-weekday-heatmap
   exports: [
     ChartVisitorsComponent,
     ChartWeekdayHeatmapComponent,
-    InputDocumentsComponent
+    InputDocumentsComponent,
+    ArrayLengthPipe
   ]
 })
 export class CommonComponentsModule { }

@@ -1,38 +1,40 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
-import { AuthGuardService } from './guards/auth.service';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { LayoutComponent } from './components/layout/layout.component';
+import { StorageComponent } from './modules/devices/components/storage/storage.component';
+import { DeviceLicensesComponent } from './modules/devices/components/device-licenses/device-licenses.component';
+import { DeviceComponent } from './modules/devices/components/device/device.component';
+import { DevicesComponent } from './modules/devices/components/devices/devices.component';
 
 
 const routes: Routes = [
-  
+
 
   {
     path: 'dashboard',
     component: DashboardComponent
   },
-  
+
   {
     path: 'devices',
-    loadChildren: () => import('./modules/devices/devices.module').then(m => m.DevicesModule)
-  },
-  
-  {
-    path: 'spacecontrol',
-    loadChildren: () => import('./modules/space-control/space-control.module').then(m => m.SpaceControlModule)
+    component: DevicesComponent,
   },
 
   {
-    path: 'signage',
-    loadChildren: () => import('./plugins/toolbox-signage/toolbox-signage.module').then(m => m.ToolboxSignageModule)
+    path: 'devices/details/:id',
+    component: DeviceComponent
   },
-
   {
-    path: 'projects',
-    loadChildren: () => import('./modules/projects/projects.module').then(m => m.ProjectsModule)
+    path: 'devices/licenses',
+    component: DeviceLicensesComponent
+  },
+  {
+    path: 'devices/storage/:storeid',
+    component: StorageComponent
+  },
+  {
+    path: 'devices/storage',
+    component: StorageComponent
   },
 
   {
@@ -44,7 +46,7 @@ const routes: Routes = [
 @NgModule({
   imports: [
     RouterModule.forRoot(
-      routes, 
+      routes,
       {
         paramsInheritanceStrategy: 'always',
         // useHash: true
