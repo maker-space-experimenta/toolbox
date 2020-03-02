@@ -32,31 +32,29 @@ services:
       - toolbox_backend
     command: /bin/bash -c 'until /opt/mssql-tools/bin/sqlcmd -S mssql -U sa -P "${TOOLBOX_DB_SA_PASSWORD}" -Q "create database Keycloak"; do sleep 5; done'
 
-
-
-
-  # keycloak:
-  #   image: jboss/keycloak
-  #   restart: always
-  #   environment:
-  #     - KEYCLOAK_USER=${KEYCLOAK_USER}
-  #     - KEYCLOAK_PASSWORD=${KEYCLOAK_PASSWORD}
-  #     - DB_VENDOR=mssql
-  #     - DB_USER=${KEYCLOAK_DB_USER}
-  #     - DB_PASSWORD=${KEYCLOAK_DB_PASSWORD}
-  #     - DB_ADDR=${KEYCLOAK_DB_SERVER}
-  #     - DB_DATABASE=${KEYCLOAK_DB_NAME}
-  #     - PROXY_ADDRESS_FORWARDING=true
-  #   labels:
-  #     - traefik.frontend.rule=Host:login.${TOOLBOX_BASE_URL}
-  #     - traefik.docker.network=traefik_net
-  #     - traefik.enable=true
-  #     - traefik.port=8080
-  #     # - traefik.port=8443
-  #     # - traefik.protocol=https
-  #   networks:
-  #     - toolbox_backend
-  #     - traefik_net
-  #   depends_on:
-  #     - mssql
-  #     - mssqlscripts
+    
+  keycloak:
+    image: jboss/keycloak
+    restart: always
+    environment:
+      - KEYCLOAK_USER=${KEYCLOAK_USER}
+      - KEYCLOAK_PASSWORD=${KEYCLOAK_PASSWORD}
+      - DB_VENDOR=mssql
+      - DB_USER=${KEYCLOAK_DB_USER}
+      - DB_PASSWORD=${KEYCLOAK_DB_PASSWORD}
+      - DB_ADDR=${KEYCLOAK_DB_SERVER}
+      - DB_DATABASE=${KEYCLOAK_DB_NAME}
+      - PROXY_ADDRESS_FORWARDING=true
+    labels:
+      - traefik.frontend.rule=Host:login.${TOOLBOX_BASE_URL}
+      - traefik.docker.network=traefik_net
+      - traefik.enable=true
+      - traefik.port=8080
+      # - traefik.port=8443
+      # - traefik.protocol=https
+    networks:
+      - toolbox_backend
+      - traefik_net
+    depends_on:
+      - mssql
+      - mssqlscripts
