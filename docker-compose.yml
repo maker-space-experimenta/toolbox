@@ -25,7 +25,7 @@ services:
 
   mssqlscripts:
     image: mcr.microsoft.com/mssql-tools
-    restart: always
+    restart: on-failure
     depends_on:
       - mssql
     networks:
