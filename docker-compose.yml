@@ -19,8 +19,8 @@ services:
        - ${datadir}/mssql/secrets:/var/opt/mssql/secrets
     networks:
       - toolbox_backend
-    ports:
-      - 1433:1433
+    # ports:
+    #   - 1433:1433
 
 
   mssqlscripts:
