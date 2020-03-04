@@ -8,7 +8,7 @@ WORKDIR /opt
 COPY .  /opt
 
 RUN node --version
-RUN cd /opt && npm install
+RUN cd /opt && npm set progress=false && npm install
 RUN cd /opt && npm run build
 
 
