@@ -5,6 +5,17 @@
 export const environment = {
   production: false,
 
+  authConfig: {
+    oidc: true,
+    issuer: 'https://login.toolbox.hmnd.de/auth/realms/toolbox',
+    redirectUri: window.location.origin + "/dashboard",
+    clientId: 'webapp-toolbox-dev',
+    scope: 'openid profile email offline_access roles',
+    requireHttps: false,
+    responseType: 'code',
+    disableAtHashCheck: true
+  },
+
   menu: {
     default: [
       {
