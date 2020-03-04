@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { MenuItem } from '../classes/menu-item';
 import { BehaviorSubject } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+
+import { menu } from './../sampledata/menu';
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class MenuService {
   constructor(
     private router: Router
   ) {
-    this.menu = environment.menu.default.map((m: any) => {
+    this.menu = menu.default.map((m: any) => {
       return this._parseMenuItem(m);
     });
   }
