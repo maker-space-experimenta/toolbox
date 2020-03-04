@@ -4,7 +4,7 @@ RUN apk update && apk add --no-cache make git
 # Create app directory
 WORKDIR /app
 # Install app dependencies
-COPY package.json package-lock.json  /app/
+COPY package.json /app/
 RUN cd /app && npm set progress=false && npm install
 # Copy project files into the docker image
 COPY .  /app
