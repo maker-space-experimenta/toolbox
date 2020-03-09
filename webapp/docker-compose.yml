@@ -5,12 +5,14 @@ services:
     build: .
     restart: always
     labels:
-      - traefik.frontend.rule=Host:toolbox.hmnd.de
+      - traefik.frontend.rule=Host:${HOSTNAME}
       - traefik.docker.network=traefik_net
       - traefik.enable=true
       - traefik.port=80
     networks:
       - traefik_net
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
 
 networks:
   traefik_net:

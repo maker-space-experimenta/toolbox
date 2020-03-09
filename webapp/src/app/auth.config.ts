@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 export const authConfig: AuthConfig = {
   oidc: true,
   issuer: 'https://login.toolbox.hmnd.de/auth/realms/toolbox',
-  redirectUri: window.location.origin + "/dashboard",
+  redirectUri: window.location.origin,
   clientId: environment.clientId,
   scope: 'openid profile email offline_access roles',
   requireHttps: false,
