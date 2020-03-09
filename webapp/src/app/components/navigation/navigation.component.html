@@ -1,4 +1,30 @@
 <header class="header header-6">
+
+  <!-- <div class="header-actions" style="max-width: 30px; justify-content: flex-start;">
+    <clr-dropdown>
+      <button class="nav-icon" clrDropdownTrigger aria-label="toggle settings menu">
+        <clr-icon shape="applications" class="is-solid" size="24"></clr-icon>
+      </button>
+      <clr-dropdown-menu *clrIfOpen clrPosition="bottom-left">
+        <div class="app-menu">
+          <a href="#">
+            <div class="app">
+              <clr-icon shape="hashtag" class="is-solid" size="24"></clr-icon>
+              <div>toolbox</div>
+            </div>
+          </a>
+
+          <a href="#">
+            <div class="app">
+              <clr-icon shape="hashtag" class="is-solid" size="24"></clr-icon>
+              <div>quickinventar</div>
+            </div>
+          </a>
+        </div>
+      </clr-dropdown-menu>
+    </clr-dropdown>
+  </div> -->
+
   <div class="branding">
     <a href="/" class="nav-link">
       <clr-icon shape="wrench" class="is-inverse" size="24"></clr-icon>
@@ -7,13 +33,8 @@
   </div>
 
   <div class="header-nav" [clr-nav-level]="1">
-
-    
     <a *ngFor="let item of menu" (click)="menuClick(item)" [ngClass]="{ 'active': item.active }"
       class="nav-link nav-text">{{ item.i18n_key | translate }}</a>
-
-
-
   </div>
 
   <div class="header-actions">
@@ -38,7 +59,8 @@
   <ul class="nav" *ngIf="selectedMenu">
 
     <li class="nav-item" *ngFor="let sub of selectedMenu.children">
-      <a class="nav-link" [ngClass]="{ 'active': sub.active }" (click)="menuClick(sub)">{{ sub.i18n_key | translate }}</a>
+      <a class="nav-link" [ngClass]="{ 'active': sub.active }"
+        (click)="menuClick(sub)">{{ sub.i18n_key | translate }}</a>
     </li>
 
   </ul>

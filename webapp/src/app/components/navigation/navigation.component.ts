@@ -55,10 +55,10 @@ export class NavigationComponent implements OnInit {
 
   menuClick(item: MenuItem) {
 
-    if (item.children.length == 0) {
-      this.menuService.navigate(item);
-      return;
-    }
+    // if (item.children.length == 0) {
+    //   this.menuService.navigate(item);
+    //   return;
+    // }
 
     this.menuService.navigate(item);
     this.selectedMenu = item;

@@ -1,0 +1,8 @@
+.splashscreen {
+    background: var(--clr-header-6-bg-color, #00364d);
+    transition-duration: 0.2s;
+
+    &.hide {
+        opacity: 0;
+    }
+}

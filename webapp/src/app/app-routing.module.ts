@@ -14,27 +14,30 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent
   },
-
+  
   {
     path: 'devices',
     component: DevicesComponent,
-  },
-
-  {
-    path: 'devices/details/:id',
-    component: DeviceComponent
-  },
-  {
-    path: 'devices/licenses',
-    component: DeviceLicensesComponent
-  },
-  {
-    path: 'devices/storage/:storeid',
-    component: StorageComponent
-  },
-  {
-    path: 'devices/storage',
-    component: StorageComponent
+    
+    children: [
+      {
+        path: 'licenses',
+        component: DeviceLicensesComponent
+      },
+      
+      // {
+      //   path: 'details/:id',
+      //   component: DeviceComponent
+      // },
+      // {
+      //   path: 'storage/:storeid',
+      //   component: StorageComponent
+      // },
+      // {
+      //   path: 'storage',
+      //   component: StorageComponent
+      // },
+    ]
   },
 
   {

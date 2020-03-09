@@ -10,3 +10,15 @@ a {
 .subnav {
     text-transform: capitalize;
 }
+
+
+.app-menu {
+    .app {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        // background-color: ;
+    }
+}

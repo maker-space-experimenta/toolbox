@@ -1,6 +1,5 @@
-
-
-<div *ngIf="!isLoggedIn" class="" style="width: 100vw; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
+<div *ngIf="!hideSplashScreen" [ngClass]="{hide: isLoggedIn}" class="splashscreen"
+    style="width: 100vw; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center;">
     <span class="spinner">
         Loading...
     </span>
@@ -10,6 +9,3 @@
 <app-layout *ngIf="isLoggedIn">
     <router-outlet></router-outlet>
 </app-layout>
-
-
-

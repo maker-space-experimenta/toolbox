@@ -1,4 +1,5 @@
 
+
 <clr-datagrid>
     <clr-dg-column>Image</clr-dg-column>
     <clr-dg-column>ID</clr-dg-column>
@@ -9,7 +10,7 @@
     <clr-dg-column>Safety Instructions</clr-dg-column>
     <clr-dg-column>Risk Sssessment</clr-dg-column>
 
-    <clr-dg-row *ngFor="let device of devices | async" class="c-pointer" (click)="rowClick(device)">
+    <clr-dg-row *ngFor="let device of devices" class="c-pointer" (click)="rowClick(device)">
         <clr-dg-cell></clr-dg-cell>
         <clr-dg-cell>{{ device.id }}</clr-dg-cell>
         <clr-dg-cell>{{ device.name }}</clr-dg-cell>
@@ -20,5 +21,5 @@
         <clr-dg-cell><clr-icon shape="file" title="download" class="c-pointer"></clr-icon> {{ device.riskassessment | date:'dd.MM.yyyy' }}</clr-dg-cell>
     </clr-dg-row>
 
-    <clr-dg-footer>{{ devices | async | arrayLength }} devices</clr-dg-footer>
+    <clr-dg-footer>{{ devices | arrayLength }} devices</clr-dg-footer>
 </clr-datagrid>

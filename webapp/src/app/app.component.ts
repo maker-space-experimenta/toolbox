@@ -13,11 +13,18 @@ export class AppComponent implements OnInit {
   
   title = 'toolbox';
   isLoggedIn = false;
+  hideSplashScreen = false;
   status = "logging in ...";
 
 
   constructor(private authService: AuthService) {
-    this.authService.IsLoggedIn.subscribe(m => this.isLoggedIn = m);
+    this.authService.IsLoggedIn.subscribe(m => {
+      this.isLoggedIn = m;
+
+      if (this.isLoggedIn) {
+        window.setTimeout(() => {this.hideSplashScreen = true; }, 400);
+      }
+    });
     this.authService.ConfigureImplicitFlowAuthentication();
   }
 
