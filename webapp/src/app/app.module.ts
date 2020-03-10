@@ -19,6 +19,7 @@ import { OAuthModule } from 'angular-oauth2-oidc';
 import { I18nModule } from './i18n/i18n.module';
 import { HttpAuthInterceptorService } from './services/http-auth-interceptor.service';
 import { UserSettingsComponent } from './components/user-settings/user-settings.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { UserSettingsComponent } from './components/user-settings/user-settings.
     OAuthModule.forRoot(),
 
     CommonComponentsModule,
-    DevicesModule
+    DevicesModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     {
