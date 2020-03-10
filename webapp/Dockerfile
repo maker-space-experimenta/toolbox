@@ -7,7 +7,7 @@ WORKDIR /opt
 # # Install app dependencies
 COPY .  /opt
 
-RUN apk add --no-cache --virtual .gyp \
+RUN apk add .gyp \
         python \
         make \
         g++
