@@ -26,6 +26,12 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
 
+    let ac = this.oauthService.getAccessToken();
+    console.log(ac);
+
+    let ic = this.oauthService.getIdentityClaims();
+    console.log(ic['preferred_username']);
+    
 
     this.http.get("http://localhost:5000/me").subscribe(result => {
       console.log(result);

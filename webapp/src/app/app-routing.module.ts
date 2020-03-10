@@ -14,31 +14,34 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent
   },
-  
+
   {
-    path: 'devices',
-    component: DevicesComponent,
-    
-    children: [
-      {
-        path: 'licenses',
-        component: DeviceLicensesComponent
-      },
-      
-      // {
-      //   path: 'details/:id',
-      //   component: DeviceComponent
-      // },
-      // {
-      //   path: 'storage/:storeid',
-      //   component: StorageComponent
-      // },
-      // {
-      //   path: 'storage',
-      //   component: StorageComponent
-      // },
-    ]
+    path: 'users',
+    loadChildren: () => import('./modules/users/users.module').then(m => m.UsersModule)
   },
+  
+  // {
+  //   path: 'devices/licenses',
+  //   component: DeviceLicensesComponent
+  // },
+  // {
+  //   path: 'details/:id',
+  //   component: DeviceComponent
+  // },
+  // {
+  //   path: 'storage/:storeid',
+  //   component: StorageComponent
+  // },
+  // {
+  //   path: 'storage',
+  //   component: StorageComponent
+  // },
+  // {
+  //   path: 'devices',
+  //   component: DevicesComponent,
+    
+      
+  // },
 
   {
     path: '**',

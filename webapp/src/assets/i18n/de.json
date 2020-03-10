@@ -33,5 +33,13 @@
     "nav_admin_users": "Benutzer",
     "nav_admin_usergroups": "Benutzergruppen",
 
-    "welcome back": "Willkommen zurück"
+    "date": "Datum",
+    "search": "suchen",
+
+    "welcome back": "Willkommen zurück",
+
+    "security briefings": "Sicherheitsunterweisungen",
+    "device license id": "Führerschein ID",
+    "device name": "Gerätename",
+    "add device license": "Neuer Führerschein"
 }

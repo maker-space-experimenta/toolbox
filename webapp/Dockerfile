@@ -14,7 +14,7 @@ RUN apk add --no-cache --virtual .gyp \
 
 RUN node --version
 RUN cd /opt && npm set progress=false && npm install
-RUN cd /opt && npm run build
+RUN cd /opt && npm set progress=false && npm run build
 RUN apk del .gyp
 
 

@@ -1,0 +1,90 @@
+<div class="content-area" style="width: 100%;">
+    <div class="clr-row">
+        <div class="clr-col-12 clr-col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    {{ 'basic data' | translate }}
+                </div>
+                <div class="card-block">
+                    <div class="card-text">
+                        <form class="clr-form  clr-form-horizontal clr-form-compact">
+                            <div class="clr-form-control">
+                                <label for="example" class="clr-control-label">{{ 'first name' | translate }}</label>
+                                <div class="clr-control-container">
+                                    <div class="clr-input-wrapper">
+                                        <input type="text" id="example" placeholder="Example Input" class="clr-input">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="clr-form-control">
+                                <label for="example" class="clr-control-label">{{ 'last name' | translate }}</label>
+                                <div class="clr-control-container">
+                                    <div class="clr-input-wrapper">
+                                        <input type="text" id="example" placeholder="Example Input" class="clr-input">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="clr-form-control">
+                                <label for="example" class="clr-control-label">{{ 'date of birth' | translate }}</label>
+                                <div class="clr-control-container">
+                                    <div class="clr-input-wrapper">
+                                        <input type="date" clrDate  id="example" placeholder="Example Input" class="clr-input">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-sm btn-primary">{{ 'save' | translate }}</button>
+                </div>
+            </div>
+        </div>
+        <div class="clr-col-12 clr-col-lg-4">
+            <div class="card">
+                <div class="card-img" style="display: flex; justify-content: center; padding: .5rem;">
+                    <img src="https://harmoniemand.de/assets/joni-1.jpg" style="max-width:100%; max-height:300px; width: auto; height: auto;">
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-sm btn-primary">{{ 'upload new image' | translate }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clr-row">
+        <div class="clr-col-12">
+            <div class="card">
+                <div class="card-header">
+                    {{ 'security briefings' | translate }}
+                </div>
+                <div class="card-block">
+                    <div class="card-title">
+                        <input type="text" id="basic" placeholder="{{ 'search' | translate }}" class="clr-input" style="width: 100%;">
+                    </div>
+                    <div class="card-text">
+                        <clr-datagrid>
+                            <clr-dg-column>{{ 'device license id' | translate }}</clr-dg-column>
+                            <clr-dg-column>{{ 'device name' | translate }}</clr-dg-column>
+                            <clr-dg-column>{{ 'date' | translate }}</clr-dg-column>
+                        
+                            <clr-dg-row *ngFor="let license of licenses">
+                                <clr-dg-cell>{{license.id}}</clr-dg-cell>
+                                <clr-dg-cell>{{license.name}}</clr-dg-cell>
+                                <clr-dg-cell>{{license.creation | date}}</clr-dg-cell>
+                            </clr-dg-row>
+                        
+                            <!-- <clr-dg-footer>{{users.length}} users</clr-dg-footer> -->
+                        </clr-datagrid>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-sm btn-primary">{{ 'add device license' | translate }}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

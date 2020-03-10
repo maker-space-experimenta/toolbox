@@ -92,16 +92,18 @@ export const menu: any = {
         },
         {
             i18n_key: "nav_users",
-            path: "/index/admin",
+            path: "/users",
             children: [
                 {
-                    i18n_key: "nav_users_me",
-                    path: "/index/cms/pages",
+                    i18n_key: "nav_users_all",
+                    path: "",
+                    role: "users_read_all"
                 },
                 {
-                    i18n_key: "nav_users_all",
-                    path: "/index/cms/pages",
+                    i18n_key: "nav_users_me",
+                    path: "/users/me",
                 },
+                
             ]
         },
         {
